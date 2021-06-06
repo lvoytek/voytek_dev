@@ -2,20 +2,33 @@
 @use "sass:map";
 
 $neon-green: (
-  "base":       #3dfd4e,
-  "lighten-5":  #eeffec,
-  "lighten-4":  #d4ffd0,
-  "lighten-3":  #b5ffb1,
-  "lighten-2":  #90ff8d,
-  "lighten-1":  #6bff6d,
-  "darken-1":   #1eea46,
-  "darken-2":   #00d43a,
-  "darken-3":   #00bf2f,
-  "darken-4":   #009921
+  "base": #3dfd4e,
+  "lighten-5": #eeffec,
+  "lighten-4": #d4ffd0,
+  "lighten-3": #b5ffb1,
+  "lighten-2": #90ff8d,
+  "lighten-1": #6bff6d,
+  "darken-1": #1eea46,
+  "darken-2": #00d43a,
+  "darken-3": #00bf2f,
+  "darken-4": #009921,
+);
+
+$clean-purple: (
+  "base": #4e0a97,
+  "lighten-5": #aa85cf,
+  "lighten-4": #aa85cf,
+  "lighten-3": #8854bc,
+  "lighten-2": #6f30ad,
+  "lighten-1": #550b9f,
+  "darken-1": #44088d,
+  "darken-2": #3b0683,
+  "darken-3": #2a0372,
 );
 
 $custom-colors: (
-	"neon-green": $neon-green
+  "neon-green": $neon-green,
+  "clean-purple": $clean-purple,
 );
 
 $colors: map-merge($colors, $custom-colors);

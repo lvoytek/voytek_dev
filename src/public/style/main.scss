@@ -1,11 +1,11 @@
 @import "custom_colors";
 @import "components/color-classes";
 
-$primary-color: color("neon-green", "darken-2");
-$secondary-color: color("neon-green", "lighten-1");
+$primary-color: color("clean-purple", "darken-2");
+$secondary-color: color("clean-purple", "lighten-1");
 $success-color: color("teal", "accent-3");
 $error-color: color("red", "accent-2");
 $link-color: color("cyan", "accent-4");
-$card-bg-color: color("neon-green", "darken-3");
+$card-bg-color: color("clean-purple", "darken-3");
 
 @import "materialize";
