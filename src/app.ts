@@ -33,7 +33,6 @@ import bodyParser from "body-parser";
 import path from "path";
 
 import {BaseRouter} from "./routes/baseRouter";
-import {UserRouter} from "./routes/userRouter";
 import {requestHandlers} from './controllers/requestHandlers';
 
 class App
@@ -42,7 +41,6 @@ class App
 
 	// Routers
 	public baseRouter: BaseRouter = new BaseRouter();
-	public userRouter: UserRouter = new UserRouter();
 
 	/**
 	 * Runs all server initialization code
@@ -53,7 +51,6 @@ class App
 		this.app = express();
 		this.config();
 		this.baseRouter.baseRoute(this.app);
-		this.userRouter.userRoute(this.app);
 		this.finalRoute();
 	}
 
