@@ -21,33 +21,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * Document: baseRouter.ts
+ * Document: project.ts
  *
- * Overview: This document acts as an Express router for base server endpoints
+ * Overview: This document contains the MongoDB object model for a project card
  */
 
-import express from "express";
+import {db} from '../db';
 
-import { BaseController } from "../controllers/baseController";
+const Schema = db.Schema;
 
-export class BaseRouter {
-	public baseController: BaseController = new BaseController();
+const Project = new Schema(
+{
+	title:			{ type: String, required: true, unique: true },
+	link:			{ type: String, required: true },
+	overview:		{ type: String, required: true },
+	imageLink:		{ type: String, required: true },
+	tags:			{ type: [String], default: [] }
+});
 
-	/**
-	 * Add routing locations for the website
-	 * @param app The global Express app
-	 */
-	public baseRoute(app: express.Application): void {
-		// get the homepage
-		app.route('/').get(this.baseController.serveIndex);
-
-		// get the projects page
-		app.route('/projects').get(this.baseController.serveProjects);
-
-		// get resume page
-		app.route('/resume').get(this.baseController.serveResume);
-
-		// get about page
-		app.route('/about').get(this.baseController.serveAbout);
-	}
-}
+export const project = db.model('Project', Project);

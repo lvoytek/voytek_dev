@@ -28,12 +28,22 @@
 
 import { Request, Response } from 'express';
 
+import { project } from '../models/project';
 import { baseModel } from '../models/baseModel';
 import { requestHandlers } from './requestHandlers';
 
 export class BaseController {
 	public serveIndex(req: Request, res: Response) {
 		res.render("index", { mobile: requestHandlers.isRequestFromMobile(req) });
+	}
+
+	public serveProjects(req: Request, res: Response) {
+		project.find({}, (err, items) => {
+			if (err)
+				res.render("projects", { projects: [], editor: false, mobile: requestHandlers.isRequestFromMobile(req) });
+			else
+				res.render("projects", { projects: items, editor: false, mobile: requestHandlers.isRequestFromMobile(req) });
+		});
 	}
 
 

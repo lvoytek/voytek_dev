@@ -1,0 +1,26 @@
+<div class="col s12 m12 l4">
+	<div class="card hoverable">
+		<div class="card-image waves-effect waves-block waves-light">
+			<img class="activator" src="images/projects/<%= project.imageLink %>">
+		</div>
+		<div class="card-content">
+			<span class="card-title activator">
+				<%= project.title %><i class="mdi-navigation-more-vert right"></i>
+			</span>
+			<p><a href="<%= project.link %>">Project link</a></p>
+		</div>
+		<div class="card-reveal">
+			<span class="card-title">
+				<%= project.title %><i class="mdi-navigation-close right"></i>
+			</span>
+			<p>
+				<%= project.overview %>
+			</p>
+			<p>Tags:
+				<% project.tags.forEach(function(tag){ %>
+					<a href="/projects?search=<%= tag %>">#<%= tag %></a>
+					<% }); %>
+			</p>
+		</div>
+	</div>
+</div>
