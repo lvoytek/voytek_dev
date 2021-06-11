@@ -27,8 +27,81 @@
  * any webpage on the site.
  */
 
-$(function ()
+
+function setColorMode(dark)
 {
-	if(window.localStorage.getItem('authToken'))
-		$('#signinbutton').html("Account");
+	if(dark)
+	{
+		$("#style-dark").attr('rel', "stylesheet");
+		$("#style-light").attr('rel', "stylesheet alternate");
+	}
+	else
+	{
+		$("#style-light").attr('rel', "stylesheet");
+		$("#style-dark").attr('rel', "stylesheet alternate");
+	}
+}
+
+function getAdditionalSidenavItems()
+{
+	if(window.localStorage.getItem("authToken"))
+	{
+		$.ajax({
+			url: '/additionalsidenavitems',
+			type: 'GET',
+			headers: { 'x-auth': window.localStorage.getItem("authToken") },
+			dataType: 'json'
+		})
+		.done(addlSidenavSuccess);
+	}
+}
+
+function addlSidenavSuccess(data, textSatus, jqXHR)
+{
+	$('#slide-out').append(data.html);
+	$("#proj-editor-link").click(function()
+	{
+		$.ajax(
+		{
+			url:"/projects-editor",
+			beforeSend: function(xhr) {xhr.setRequestHeader('x-auth', window.localStorage.getItem("authToken"));},
+			type: "GET",
+			success: function(result) { window.document.write(result); }
+		});
+	});
+}
+
+
+$(document).ready(function ()
+{
+	//Activate/disable dark mode
+	if(window.localStorage.getItem('darkModeOn') !== null)
+	{
+		$("#darkmode:checkbox").prop("checked", window.localStorage.getItem('darkModeOn') === "true");
+		setColorMode(window.localStorage.getItem('darkModeOn') === "true");
+	}
+	else
+	{
+		window.localStorage.setItem('darkModeOn', "false");
+	}
+
+	//Check for currently active page in navbar
+	$("#link-" + $("title").html()).addClass("active");
+
+	getAdditionalSidenavItems();
+
+	//Edit dark mode when checkbox toggled
+	$("#darkmode").change(function()
+	{
+		if(this.checked)
+		{
+			window.localStorage.setItem('darkModeOn', "true");
+		}
+		else
+		{
+			window.localStorage.setItem('darkModeOn', "false");
+		}
+		
+		setColorMode(this.checked);
+	});
 });

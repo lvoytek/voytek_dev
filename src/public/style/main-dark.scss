@@ -1,0 +1,21 @@
+@import "custom_colors";
+@import "components/color-classes";
+@import "all";
+
+$primary-color: color("maximum-blue-purple", "darken-4");
+$secondary-color: color("maximum-blue-purple", "darken-1");
+$success-color: color("magic-mint", "lighten-3");
+$error-color: color("rose-red", "darken-2");
+$link-color: color("zomp", "lighten-1");
+$card-bg-color: color("purple-navy", "darken-4");
+
+body {
+	@extend .purple-navy, .darken-3;
+	@extend .white-text;
+}
+
+#landing {
+	background-image: url('/images/landing-dark.png');
+}
+
+@import "materialize";

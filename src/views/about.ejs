@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>About</title>
+		<%- include('partials/head'); %>
+	</head>
+	<body>
+		<%- include('partials/nav', {mobile: mobile}); %>
+
+		<div class="container">
+			<h1 class="header center">About Me</h1>
+			<div class="row">
+				<div class="col s8 m6 l6">
+					<div class="card hoverable">
+						<img alt="Lena" class="responsive-img" src="images/lena.jpg">
+					</div>
+				</div>
+
+				<div class="col s12 m6 l6">
+					<p class="flow-text">
+						Hey, my name is Lena Voytek. I am a programmer who specializes in embedded software and full-stack development. From drones controlled over cellular networks, to websites built from the ground up, I love building technology for the interconnected world.
+						While much of the code I create as part of my embedded software engineering job is closed-source, I do my best to contribute to the open source community in my free time. I am a member of both <a href="https://www.ieee.org/">IEEE</a> and the <a href="https://www.fsf.org/">Free Software Foundation</a>. 
+						While you're here, feel free to take a look at some of my open source projects on the <a href="/projects">Projects page</a>. You can also find my official Resume on the <a href="/resume">Resume page</a>. If you want a more visual representation of my skills, 
+						you can scroll further down this page. Thanks!
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="section" id="skills">
+			<%- include('partials/skillview', {skills: skills}); %>
+		</div>
+		<%- include('partials/sociallinks'); %>
+	</body>
+	<%- include('partials/materializescript'); %>
+</html>

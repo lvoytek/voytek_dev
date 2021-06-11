@@ -2,33 +2,110 @@
 @use "sass:map";
 
 $neon-green: (
-  "base": #3dfd4e,
-  "lighten-5": #eeffec,
-  "lighten-4": #d4ffd0,
-  "lighten-3": #b5ffb1,
-  "lighten-2": #90ff8d,
-  "lighten-1": #6bff6d,
-  "darken-1": #1eea46,
-  "darken-2": #00d43a,
-  "darken-3": #00bf2f,
-  "darken-4": #009921,
+  "base":       #3dfd4e,
+  "lighten-5":  #eeffec,
+  "lighten-4":  #d4ffd0,
+  "lighten-3":  #b5ffb1,
+  "lighten-2":  #90ff8d,
+  "lighten-1":  #6bff6d,
+  "darken-1":   #1eea46,
+  "darken-2":   #00d43a,
+  "darken-3":   #00bf2f,
+  "darken-4":   #009921
 );
 
-$clean-purple: (
-  "base": #4e0a97,
-  "lighten-5": #aa85cf,
-  "lighten-4": #aa85cf,
-  "lighten-3": #8854bc,
-  "lighten-2": #6f30ad,
-  "lighten-1": #550b9f,
-  "darken-1": #44088d,
-  "darken-2": #3b0683,
-  "darken-3": #2a0372,
+$purple-navy: (
+  "base":       #575b88,
+  "lighten-5":  #eaebf0,
+  "lighten-4":  #c9ccdb,
+  "lighten-3":  #a7acc2,
+  "lighten-2":  #868ca9,
+  "lighten-1":  #6e7397,
+  "darken-1":   #50537f,
+  "darken-2":   #474973,
+  "darken-3":   #3f4066,
+  "darken-4":   #32304d,
+  "accent-1":   #76658b,
+  "accent-2":   #5b4773,
+  "accent-3":   #513f69,
+  "accent-4":   #48395f
+);
+
+$maximum-blue-purple: (
+  "base":       #6a3ed8,
+  "lighten-5":  #ece9ff,
+  "lighten-4":  #cfc7ff,
+  "lighten-3":  #aea2ff,
+  "lighten-2":  #8f7df6,
+  "lighten-1":  #7b5ee7,
+  "darken-1":   #6535cd,
+  "darken-2":   #5d28bf,
+  "darken-3":   #5618b2,
+  "darken-4":   #4b009a,
+  "accent-1":   #a145e6,
+  "accent-2":   #8940dd,
+  "accent-3":   #753cd4,
+  "accent-4":   #4b35c5
+);
+
+$magic-mint: (
+  "base":       #00d794,
+  "lighten-5":  #e6fbf2,
+  "lighten-4":  #c3f4df,
+  "lighten-3":  #99edcb,
+  "lighten-2":  #67e6b7,
+  "lighten-1":  #34dea5,
+  "darken-1":   #00c687,
+  "darken-2":   #00b278,
+  "darken-3":   #00a06b,
+  "darken-4":   #007f52,
+  "accent-1":   #99eda1,
+  "accent-2":   #6ee57d,
+  "accent-3":   #4fdb65,
+  "accent-4":   #2dd24b
+);
+
+$zomp: (
+  "base":       #1b9175,
+  "lighten-5":  #e0f1ee,
+  "lighten-4":  #b3ded3,
+  "lighten-3":  #82c8b7,
+  "lighten-2":  #53b39c,
+  "lighten-1":  #32a288,
+  "darken-1":   #188569,
+  "darken-2":   #14755b,
+  "darken-3":   #0e654d,
+  "darken-4":   #074933,
+  "accent-1":   #5abd72,
+  "accent-2":   #3ab159,
+  "accent-3":   #32a250,
+  "accent-4":   #279044
+);
+
+$rose-red: (
+  "base":       #ee356f,
+  "lighten-5":  #fce5ee,
+  "lighten-4": 	#f9bfd4,
+  "lighten-3":  #f695b8,
+  "lighten-2":  #f36c9b,
+  "lighten-1":  #f04e85,
+  "darken-1":   #dd326c,
+  "darken-2":   #c62e66,
+  "darken-3":   #b02a61,
+  "darken-4":   #8a2457,
+  "accent-1":   #d15bbf,
+  "accent-2":   #c62eb2,
+  "accent-3":   #ba00a5,
+  "accent-4":   #ac00a0
 );
 
 $custom-colors: (
-  "neon-green": $neon-green,
-  "clean-purple": $clean-purple,
+	"neon-green": $neon-green,
+	"purple-navy": $purple-navy,
+	"maximum-blue-purple": $maximum-blue-purple,
+	"magic-mint": $magic-mint,
+	"zomp": $zomp,
+	"rose-red": $rose-red
 );
 
 $colors: map-merge($colors, $custom-colors);

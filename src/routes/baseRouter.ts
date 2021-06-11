@@ -28,28 +28,23 @@
 
 import express from "express";
 
-import {BaseController} from "../controllers/baseController";
+import { BaseController } from "../controllers/baseController";
 
-export class BaseRouter
-{
+export class BaseRouter {
 	public baseController: BaseController = new BaseController();
 
 	/**
 	 * Add routing locations for the website
 	 * @param app The global Express app
 	 */
-	public baseRoute(app: express.Application): void
-	{
+	public baseRoute(app: express.Application): void {
 		// get the homepage
 		app.route('/').get(this.baseController.serveIndex);
 
-		// handle base model objects
-		app.route('/base')
+		// get resume page
+		app.route('/resume').get(this.baseController.serveResume);
 
-			// get all the base model objects
-			.get(this.baseController.getAllBaseItems)
-
-			// add a new base model object
-			.post(this.baseController.addBaseItem);
+		// get about page
+		app.route('/about').get(this.baseController.serveAbout);
 	}
 }

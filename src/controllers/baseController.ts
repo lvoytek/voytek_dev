@@ -28,34 +28,48 @@
 
 import { Request, Response } from 'express';
 
-import {baseModel} from '../models/baseModel';
-import {requestHandlers} from './requestHandlers';
+import { baseModel } from '../models/baseModel';
+import { requestHandlers } from './requestHandlers';
 
-export class BaseController
-{
-	public serveIndex(req: Request, res: Response)
-	{
-		res.render("index", {mobile: requestHandlers.isRequestFromMobile(req)});
+export class BaseController {
+	public serveIndex(req: Request, res: Response) {
+		res.render("index", { mobile: requestHandlers.isRequestFromMobile(req) });
 	}
 
-	public addBaseItem(req: Request, res: Response)
-	{
+
+	public serveResume(req: Request, res: Response) {
+		res.render("resume", { mobile: requestHandlers.isRequestFromMobile(req) });
+	}
+
+	public serveAbout(req: Request, res: Response) {
+		const skills = [
+			{ imagelink: "/images/skills/c.png", link: "#", name: "C" },
+			{ imagelink: "/images/skills/cpp.png", link: "#", name: "C++" },
+			{ imagelink: "/images/skills/cs.png", link: "#", name: "C#" },
+			{ imagelink: "/images/skills/verilog.png", link: "#", name: "Verilog" },
+			{ imagelink: "/images/skills/typescript.png", link: "#", name: "TypeScript" },
+			{ imagelink: "/images/skills/javascript.png", link: "#", name: "JavaScript" },
+			{ imagelink: "/images/skills/python.png", link: "#", name: "Python" },
+			{ imagelink: "/images/skills/java.png", link: "#", name: "Java" }
+		];
+
+		res.render("about", { mobile: requestHandlers.isRequestFromMobile(req), skills });
+	}
+
+	public addBaseItem(req: Request, res: Response) {
 		const newItem = new baseModel(req.body);
-		newItem.save((err, item) =>
-		{
-			if(err)
-				res.status(400).json({"error": err});
+		newItem.save((err, item) => {
+			if (err)
+				res.status(400).json({ "error": err });
 			else
-				res.status(200).json({"message": "success", "item":item});
+				res.status(200).json({ "message": "success", "item": item });
 		});
 	}
 
-	public getAllBaseItems(req: Request, res: Response)
-	{
-		baseModel.find({}, (err, items) =>
-		{
-			if(err)
-				res.status(500).json({"error": err});
+	public getAllBaseItems(req: Request, res: Response) {
+		baseModel.find({}, (err, items) => {
+			if (err)
+				res.status(500).json({ "error": err });
 			else
 				res.status(200).json(items);
 		});

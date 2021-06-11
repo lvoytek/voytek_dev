@@ -1,11 +1,20 @@
 @import "custom_colors";
 @import "components/color-classes";
+@import "all";
 
-$primary-color: color("clean-purple", "darken-2");
-$secondary-color: color("clean-purple", "lighten-1");
-$success-color: color("teal", "accent-3");
-$error-color: color("red", "accent-2");
-$link-color: color("cyan", "accent-4");
-$card-bg-color: color("clean-purple", "darken-3");
+$primary-color: color("purple-navy", "darken-2");
+$secondary-color: color("maximum-blue-purple", "lighten-2");
+$success-color: color("magic-mint", "lighten-3");
+$error-color: color("rose-red", "darken-2");
+$link-color: color("zomp", "darken-3");
+$card-bg-color: color("purple-navy", "lighten-1");
+
+body {
+	@extend .zomp, .lighten-3;
+}
+
+#landing {
+	background-image: url('/images/landing-light.png');
+}
 
 @import "materialize";

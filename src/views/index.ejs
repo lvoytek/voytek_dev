@@ -1,16 +1,61 @@
+<!--
+            ⠀⠀⠀⠀⣠⣦⣤⣀
+            ⠀⠀⠀⠀⢡⣤⣿⣿
+            ⠀⠀⠀⠀⠠⠜⢾⡟
+            ⠀⠀⠀⠀⠀⠹⠿⠃⠄
+            ⠀⠀⠈⠀⠉⠉⠑⠀⠀⠠⢈⣆
+            ⠀⠀⣄⠀⠀⠀⠀⠀⢶⣷⠃⢵
+            ⠐⠰⣷⠀⠀⠀⠀⢀⢟⣽⣆⠀⢃
+            ⠰⣾⣶⣤⡼⢳⣦⣤⣴⣾⣿⣿⠞
+            ⠀⠈⠉⠉⠛⠛⠉⠉⠉⠙⠁
+            ⠀⠀⡐⠘⣿⣿⣯⠿⠛⣿⡄
+            ⠀⠀⠁⢀⣄⣄⣠⡥⠔⣻⡇
+            ⠀⠀⠀⠘⣛⣿⣟⣖⢭⣿⡇
+            ⠀⠀⢀⣿⣿⣿⣿⣷⣿⣽⡇
+            ⠀⠀⢸⣿⣿⣿⡇⣿⣿⣿⣇
+            ⠀⠀⠀⢹⣿⣿⡀⠸⣿⣿⡏
+            ⠀⠀⠀⢸⣿⣿⠇⠀⣿⣿⣿
+            ⠀⠀⠀⠈⣿⣿⠀⠀⢸⣿⡿
+            ⠀⠀⠀⠀⣿⣿⠀⠀⢀⣿⡇
+            ⠀⣠⣴⣿⡿⠟⠀⠀⢸⣿⣷
+            ⠀⠉⠉⠁⠀⠀⠀⠀⢸⣿⣿⠁
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈
+ _____ _   __  _____ _                _        
+|  _  | | / / /  ___| |              | |       
+| | | | |/ /  \ `--.| |__   __ _ _ __| | _____ 
+| | | |    \   `--. \ '_ \ / _` | '__| |/ / __|
+\ \_/ / |\  \ /\__/ / | | | (_| | |  |   <\__ \
+ \___/\_| \_/ \____/|_| |_|\__,_|_|  |_|\_\___/
+-->
+
+<!--This website was developed by me, Lena Voytek, in pure TypeScript, SASS, and HTML
+    with a little help from nodejs, express, and materialize.
+    
+    Pls no hack :)
+-->
+
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Website Base</title>
-		<%- include('partials/head'); %>
-	</head>
-	<body>
-		<%- include('partials/nav', {mobile: mobile}); %>
 
-		<div class="container">
-			<h1 class="header">Success!</h1>
-			<h2 class="header">Welcome to your simple webserver homepage</h1>
+<head>
+	<title>Home</title>
+	<%- include('partials/head'); %>
+</head>
+
+<body>
+	<%- include('partials/nav', {mobile: mobile}); %>
+
+		<div class="section landing-layout" id="landing">
+			<div class="landing-text">
+				<h1 class="center">Lena <b>Voytek</b></h1>
+				<h6 class="center">Embedded Software Engineer</h6>
+				<h6 class="center">Full Stack Developer</h6>
+				<h6 class="center">Open Source Creator</h6>
+			</div>
 		</div>
-	</body>
-	<%- include('partials/materializescript'); %>
+
+		<%- include('partials/sociallinks'); %>
+</body>
+<%- include('partials/materializescript'); %>
+
 </html>

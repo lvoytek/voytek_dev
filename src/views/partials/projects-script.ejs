@@ -1,0 +1,13 @@
+<script>
+    function searchProjects(query) {
+
+    }
+
+    $(function () {
+        //<% if (project_query) { %>
+        $("#project-search").val("<%= project_query %>");
+        M.updateTextFields();
+        searchProjects("<%= project_query %>");
+        //<% } %>
+    });
+</script>
