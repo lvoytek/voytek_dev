@@ -23,85 +23,72 @@
  *
  * Document: main.js
  *
- * Overview: This document contains functions and scripts that can be run by 
+ * Overview: This document contains functions and scripts that can be run by
  * any webpage on the site.
  */
 
 
-function setColorMode(dark)
-{
-	if(dark)
-	{
-		$("#style-dark").attr('rel', "stylesheet");
-		$("#style-light").attr('rel', "stylesheet alternate");
-	}
-	else
-	{
-		$("#style-light").attr('rel', "stylesheet");
-		$("#style-dark").attr('rel', "stylesheet alternate");
-	}
+function setColorMode(dark) {
+  if (dark) {
+    $("#style-dark").attr('rel', "stylesheet");
+    $("#style-light").attr('rel', "stylesheet alternate");
+  }
+  else {
+    $("#style-light").attr('rel', "stylesheet");
+    $("#style-dark").attr('rel', "stylesheet alternate");
+  }
 }
 
-function getAdditionalSidenavItems()
-{
-	if(window.localStorage.getItem("authToken"))
-	{
-		$.ajax({
-			url: '/additionalsidenavitems',
-			type: 'GET',
-			headers: { 'x-auth': window.localStorage.getItem("authToken") },
-			dataType: 'json'
-		})
-		.done(addlSidenavSuccess);
-	}
+function getAdditionalSidenavItems() {
+  if (window.localStorage.getItem("authToken")) {
+    $.ajax({
+      url: '/additionalsidenavitems',
+      type: 'GET',
+      headers: { 'x-auth': window.localStorage.getItem("authToken") },
+      dataType: 'json'
+    })
+      .done(addlSidenavSuccess);
+  }
 }
 
-function addlSidenavSuccess(data, textSatus, jqXHR)
-{
-	$('#slide-out').append(data.html);
-	$("#proj-editor-link").click(function()
-	{
-		$.ajax(
-		{
-			url:"/projects-editor",
-			beforeSend: function(xhr) {xhr.setRequestHeader('x-auth', window.localStorage.getItem("authToken"));},
-			type: "GET",
-			success: function(result) { window.document.write(result); }
-		});
-	});
+function addlSidenavSuccess(data, textSatus, jqXHR) {
+  $('#slide-out').append(data.html);
+  $("#proj-editor-link").click(function () {
+    $.ajax(
+      {
+        url: "/projects-editor",
+        beforeSend: function (xhr) { xhr.setRequestHeader('x-auth', window.localStorage.getItem("authToken")); },
+        type: "GET",
+        success: function (result) { window.document.write(result); }
+      });
+  });
 }
 
 
-$(document).ready(function ()
-{
-	//Activate/disable dark mode
-	if(window.localStorage.getItem('darkModeOn') !== null)
-	{
-		$("#darkmode:checkbox").prop("checked", window.localStorage.getItem('darkModeOn') === "true");
-		setColorMode(window.localStorage.getItem('darkModeOn') === "true");
-	}
-	else
-	{
-		window.localStorage.setItem('darkModeOn', "false");
-	}
+$(document).ready(function () {
+  //Activate/disable dark mode
+  if (window.localStorage.getItem('darkModeOn') !== null) {
+    $("#darkmode:checkbox").prop("checked", window.localStorage.getItem('darkModeOn') === "true");
+    setColorMode(window.localStorage.getItem('darkModeOn') === "true");
+  }
+  else {
+    window.localStorage.setItem('darkModeOn', "true");
+  }
 
-	//Check for currently active page in navbar
-	$("#link-" + $("title").html()).addClass("active");
+  //Check for currently active page in navbar
+  $("#link-" + $("title").html()).addClass("active");
 
-	getAdditionalSidenavItems();
+  getAdditionalSidenavItems();
 
-	//Edit dark mode when checkbox toggled
-	$("#darkmode").change(function()
-	{
-		if(this.checked)
-		{
-			window.localStorage.setItem('darkModeOn', "true");
-		}
-		else
-		{
-			window.localStorage.setItem('darkModeOn', "false");
-		}
-		
-		setColorMode(this.checked);
-	});
+  //Edit dark mode when checkbox toggled
+  $("#darkmode").change(function () {
+    if (this.checked) {
+      window.localStorage.setItem('darkModeOn', "true");
+    }
+    else {
+      window.localStorage.setItem('darkModeOn', "false");
+    }
+
+    setColorMode(this.checked);
+  });
 });
